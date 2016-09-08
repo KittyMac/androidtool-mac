@@ -40,8 +40,8 @@ else
     orientation=$("$adb" -s $serial shell dumpsys input | grep 'SurfaceOrientation' | awk '{ print $2 }')
     if [[ "${orientation//[$'\t\r\n ']}" != "0" ]]
     then
-        "$adb" -s $serial shell screenrecord --bit-rate $bitrate --verbose --size $height"x"$width /sdcard/capture.mp4 # > $1/reclog.txt
+        "$adb" -s $serial shell screenrecord --bit-rate $bitrate --verbose /sdcard/capture.mp4 # > $1/reclog.txt
     else
-        "$adb" -s $serial shell screenrecord --bit-rate $bitrate --verbose --size $width"x"$height /sdcard/capture.mp4 # > $1/reclog.txt
+        "$adb" -s $serial shell screenrecord --bit-rate $bitrate --verbose /sdcard/capture.mp4 # > $1/reclog.txt
     fi
 fi
